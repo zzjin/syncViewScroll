@@ -1,0 +1,10 @@
+[
+{
+	"id": "view",
+	"children":
+	[
+		{"id": "groups"},
+		{ "command": "toggle_setting", "args": {"setting": "syncScroll"}, "caption": "Sync Scroll", "checkbox": true}
+	]
+}
+]
