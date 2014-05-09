@@ -33,7 +33,7 @@ def synch_scroll_loop():
 		global synch_scroll_running
 		if not synch_scroll_running:
 			synch_scroll_running = True
-			sublime.set_timeout(synch_scroll, 0)
+			sublime.set_timeout(lambda: synch_scroll(), 0)
 		time.sleep(0.08)
 def synch_scroll():
 	global synch_scroll_running
@@ -76,3 +76,8 @@ class syncScrollListener(sublime_plugin.EventListener):
 		#on load add settings to a view
 		# print ("on_load")
 		initialize(view)
+
+class ToggleSyncScrollCommand(sublime_plugin.TextCommand):
+	def run(self, edit):
+		current_state = self.view.settings().get('syncScroll')
+		self.view.settings().set('syncScroll',not current_state)
