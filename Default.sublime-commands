@@ -1,3 +1,3 @@
 [
-    {"caption": "SyncScroll: Toggle Current View Scroll Sync", "command": "toggle_sync_scroll"}
+    {"caption": "SyncScroll: Toggle Current View Scroll Sync", "args": {"setting": "syncScroll"}, "command": "toggle_sync_scroll"}
 ]

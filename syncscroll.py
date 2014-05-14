@@ -81,3 +81,5 @@ class ToggleSyncScrollCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		current_state = self.view.settings().get('syncScroll')
 		self.view.settings().set('syncScroll',not current_state)
+	def is_checked(self, setting):
+      		return self.view.settings().get('syncScroll')
