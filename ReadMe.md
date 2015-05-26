@@ -26,9 +26,9 @@ Just clone this repo and put it under your sublime-text package folder.
 zzjin tczzjin#gmail.com
 
 ## Thanks
- [@FichteFoll](https://github.com/FichteFoll) to suggest add command palette support
- [@pribilinskiy](https://github.com/pribilinskiy) to report windows menu toggle bug
- [@spywhere](https://github.com/spywhere) to report is_check error in some case views are not inited
+ [@FichteFoll](https://github.com/FichteFoll) to suggest add command palette support  
+ [@pribilinskiy](https://github.com/pribilinskiy) to report windows menu toggle bug  
+ [@spywhere](https://github.com/spywhere) to report is_check error in some case views are not inited  
 
 ## TODO
 
