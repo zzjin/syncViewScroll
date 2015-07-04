@@ -4,7 +4,7 @@
 	"children":
 	[
 		{"id": "groups"},
-		{ "command": "toggle_sync_scroll", "args": {"setting": "syncScroll"}, "caption": "Sync Scroll", "checkbox": true}
+		{ "command": "toggle_sync_scroll", "caption": "Sync Scroll", "checkbox": true}
 	]
 }
 ]
