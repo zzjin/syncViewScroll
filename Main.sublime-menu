@@ -6,5 +6,34 @@
 		{"id": "groups"},
 		{ "command": "toggle_sync_scroll", "caption": "Sync Scroll", "checkbox": true}
 	]
+},
+{
+	"id": "preferences",
+	"children": [
+	{
+		"id": "package-settings",
+		"children": [
+		{
+			"caption": "Sync View Scroll",
+			"children": [
+			{
+				"caption": "Settings - Default",
+				"command": "open_file",
+				"args": {
+					"file": "${packages}/Sync View Scroll/Sync View Scroll.sublime-settings"
+				}
+			},
+			{
+				"caption": "Settings - User",
+				"command": "open_file",
+				"args": {
+					"file": "${packages}/User/Sync View Scroll.sublime-settings"
+				}
+			}
+			]
+		}
+		]
+	}
+	]
 }
 ]

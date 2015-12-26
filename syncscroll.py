@@ -18,6 +18,10 @@ def initialize(view):
 	updatePos(view)
 	view.settings().clear_on_change('syncScroll') #for debug reasons
 	view.settings().add_on_change('syncScroll', updateStatus) #when syncScroll is toggled, update status bar
+	settings = sublime.load_settings('Sync View Scroll.sublime-settings')
+	status_off = settings.get('status_off')
+	if status_off:
+		view.set_status('syncScroll', status_off)
 def plugin_loaded():
 	if not 'running_synch_scroll_loop' in globals():
 		global running_synch_scroll_loop
@@ -62,12 +66,19 @@ def synch_scroll():
 
 def updateStatus():
 	# print "updateStatus"
+	settings = sublime.load_settings('Sync View Scroll.sublime-settings')
 	for window in sublime.windows():
 		for view in window.views():
 			if view.settings().get('syncScroll'):
-				view.set_status('syncScroll','[Sync ON]')
+				status_on = settings.get('status_on')
+				if status_on:
+					view.set_status('syncScroll', status_on)
 			else:
-				view.erase_status('syncScroll')
+				status_off = settings.get('status_off')
+				if status_off:
+					view.set_status('syncScroll', status_off)
+				else:
+					view.erase_status('syncScroll')
 
 class syncScrollListener(sublime_plugin.EventListener):
 	def on_activated(self, view):
