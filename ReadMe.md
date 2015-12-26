@@ -19,9 +19,9 @@ Just clone this repo and put it under your sublime-text package folder.
 ## Usage
 
 1. In one View, goto `View`, check the `Sync Scroll` checkbox. (OR using command palette with 'syncscroll')
-2. Repeat step 1 on all other view you wangt to sync view
+2. Repeat step 1 on all other view you want to sync view
 3. Scroll on one of these views, the others sync scrolls.
-4. You can set `{ "keys": [your_keys_here], "args": {"setting": "syncScroll"}, "command": "toggle_sync_scroll" }` in user's keymap to trigger sync scroll(thanks to [@KaduAmaral](https://github.com/KaduAmaral))
+4. You can set `{ "keys": [your_keys_here], "command": "toggle_sync_scroll" }` in user's keymap to trigger sync scroll(thanks to [@KaduAmaral](https://github.com/KaduAmaral))
 
 ## Author
 zzjin tczzjin#gmail.com
