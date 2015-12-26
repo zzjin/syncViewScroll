@@ -6,7 +6,7 @@
 
 Sync View Scroll is a simple [Sublime Text 3](http://www.sublimetext.com/3 ) plug-in which allows sync scroll among views.
 
-*note: st2 should work, but need more test*
+*note: st2 should work, if you find any bug, please open an issue at github.*
 
 ## Install
 
@@ -30,6 +30,8 @@ zzjin tczzjin#gmail.com
  [@FichteFoll](https://github.com/FichteFoll) to suggest add command palette support  
  [@pribilinskiy](https://github.com/pribilinskiy) to report windows menu toggle bug  
  [@spywhere](https://github.com/spywhere) to report is_check error in some case views are not inited  
+ [@Kl0tl](https://github.com/Kl0tl) to add support for horizontal scroll and implement the configureable staus bar text, Thanks!  
+ [@getify](https://github.com/getify) and [@CSester](https://github.com/CSester) to report st2 activate bug
 
 ## TODO
 
