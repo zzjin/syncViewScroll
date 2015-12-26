@@ -1,6 +1,9 @@
 import sublime, sublime_plugin
 
-import _thread as thread
+try:
+    import _thread  # py3
+except ImportError:
+    import thread as _thread  # py2
 import time
 
 synch_scroll_running = False
@@ -26,7 +29,7 @@ def plugin_loaded():
 	if not 'running_synch_scroll_loop' in globals():
 		global running_synch_scroll_loop
 		running_synch_scroll_loop = True
-		thread.start_new_thread(synch_scroll_loop, ())
+		_thread.start_new_thread(synch_scroll_loop, ())
 	#on startup initialize every view
 	print ("syncScroll starting")
 	for window in sublime.windows():
