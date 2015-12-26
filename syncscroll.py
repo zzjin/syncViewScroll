@@ -73,7 +73,7 @@ class syncScrollListener(sublime_plugin.EventListener):
 	def on_activated(self, view):
 		global synch_scroll_current_view_object
 		synch_scroll_current_view_object = view
-		view.settings().set('origPos', view.viewport_position()[1])
+		view.settings().set('origPos', view.viewport_position())
 	def on_load(self,view):
 		#on load add settings to a view
 		# print ("on_load")
