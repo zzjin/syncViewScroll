@@ -8,7 +8,7 @@ synch_scroll_current_view_object = None
 
 def updatePos(view):
 	#print 'updatepos'
-	view.settings().set('origPos',view.viewport_position()[1])
+	view.settings().set('origPos',view.viewport_position())
 
 def initialize(view):
 	#print 'initialize'
@@ -43,18 +43,19 @@ def synch_scroll():
 	if current_view is None or current_view.is_loading() or not current_view.settings().get('syncScroll'):
 		synch_scroll_running = False
 		return
-	callingViewPos = current_view.viewport_position()[1]
-	origCallingViewPos = current_view.settings().get('origPos')
-	# print ('modified. origCallingViewPos=', origCallingViewPos, 'callingViewPos= ', callingViewPos)
-	if callingViewPos != origCallingViewPos: #and it moved vertically
+	callingViewPosX, callingViewPosY = current_view.viewport_position()
+	origCallingViewPosX, origCallingViewPosY = current_view.settings().get('origPos')
+	# print ('modified. origCallingViewPos=', origCallingViewPosX, origCallingViewPosY, 'callingViewPos= ', callingViewPosX, callingViewPosY)
+	if callingViewPosX != origCallingViewPosY or callingViewPosY != origCallingViewPosY: #and it moved vertically or horizontally
 		# print ("it moved")
 		for view in current_view.window().views():
 			if view.settings().get('syncScroll') and view.id() != current_view.id(): #if view has syncScroll enabled AND we're not talking about the same view as view
 				#we move view
-				viewPos = view.viewport_position()[1]
-				newViewPos = viewPos+callingViewPos-origCallingViewPos
-				# print ("moving. viewPos= ",viewPos," newViewPos= ",newViewPos)
-				view.set_viewport_position((view.viewport_position()[0],newViewPos), True) #move the other view
+				viewPosX, viewPosY = view.viewport_position()
+				newViewPosX = viewPosX+callingViewPosX-origCallingViewPosX
+				newViewPosY = viewPosY+callingViewPosY-origCallingViewPosY
+				# print ("moving. viewPos= ",viewPosX,viewPosY," newViewPos= ",newViewPosX,newViewPosY)
+				view.set_viewport_position((newViewPosX,newViewPosY), True) #move the other view
 				updatePos(view)
 		updatePos(current_view) #update original positions
 	synch_scroll_running = False
