@@ -73,10 +73,16 @@ class syncScrollListener(sublime_plugin.EventListener):
 	def on_activated(self, view):
 		global synch_scroll_current_view_object
 		synch_scroll_current_view_object = view
+		view.settings().set('origPos', view.viewport_position()[1])
 	def on_load(self,view):
 		#on load add settings to a view
 		# print ("on_load")
 		initialize(view)
+	def on_text_command(self, current_view, command_name, args):
+		if current_view.settings().get('syncScroll') and command_name == 'move_to' and args['to'] in ['bof', 'eof']:
+			for view in current_view.window().views():
+				if view.settings().get('syncScroll') and view.id() != current_view.id():
+					view.run_command(command_name, args)
 
 class ToggleSyncScrollCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
