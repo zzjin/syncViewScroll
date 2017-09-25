@@ -31,7 +31,7 @@ def plugin_loaded():
 		running_synch_scroll_loop = True
 		_thread.start_new_thread(synch_scroll_loop, ())
 	#on startup initialize every view
-	print ("syncScroll starting")
+	#print ("syncScroll starting")
 	for window in sublime.windows():
 		for view in window.views():
 			initialize(view)
